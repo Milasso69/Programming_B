@@ -167,3 +167,20 @@ h1 {
 #page4 .section:nth-child(4) {
     background-color: #EBD3F8;
 }
+
+#page5{
+    grid-template-columns: 1fr 1fr;
+}
+
+#page5 .right{
+    grid-template-rows: 1fr 1fr;
+}
+
+#page5 .right .top{
+    background-color: #AD49E1;
+}
+
+#page5 .right .bottom{
+    background-color: #7A1CAC;
+    color: whitesmoke;
+}
