@@ -4,29 +4,14 @@ var currentPage = '#page5'
 function setup(){
     console.log('Ba- ba- ball')
     //sæt event listeners op på menu
-    select('#menuPage1').mousePressed(
-        function(){
-            shiftPage('#page1')
-        }
-    )
-    select('#menuPage2').mousePressed(
-        function(){
-            shiftPage('#page2')
-        }
-    )
-    select('#menuPage3').mousePressed(
-        function(){
-            shiftPage('#page3')
-        }
-    )
-    select('#menuPage4').mousePressed(
-        function(){
-            shiftPage('#page4')
-        }
-    )
-    select('#menuPage5').mousePressed(
-        function(){
-            shiftPage('#page5')
+    var allMenuItems = selectAll('.sidebar a')
+    allMenuItems.map(
+        function(item){
+            item.mousePressed(
+                function(){
+                    shiftPage(item.attribute('action'))
+                }
+            )
         }
     )
 }
