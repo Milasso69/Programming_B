@@ -1,4 +1,4 @@
-var currentPage = '#page4'
+var currentPage = '#page2'
 
 //P5 setup() bliver kaldt en gang før siden vises
 function setup(){
