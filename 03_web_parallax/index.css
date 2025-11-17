@@ -124,6 +124,7 @@ h1 {
     min-height: 100vh;
     background-attachment: fixed;
     background-size: cover;
+    color: whitesmoke;
 }
 
 .background1{
