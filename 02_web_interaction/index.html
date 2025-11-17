@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web template with p5.js</title>
+    
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js"></script>
+</head>
+
+<body>
+    <div class="menuWrapper">
+        <div class="burgerIcon">☰</div>
+        <div class="sidebar">
+
+        </div>
+    </div>
+    <main>
+        <div class="page" id="page1" title="Button">
+            <button id="theButton">Click me please senpai ~Nya~</button>
+        </div>
+
+        <div class="page" id="page2" title="Drop down">
+            <select name="theSelect" id="theSelect">
+                <option value="white">Vælg et Theme <i>~Nya~</i></option>
+                <option value="orangered">Anger >:(</option>
+                <option value="hotpink">~Kawaii~</option>
+            </select>
+        </div>
+
+        <div class="page" id="page3" title="Input Field">
+            <span>
+                <input type="text" id="theInput">
+                <button id="theInputBotton">~Nya~ go</button>
+                <h1 id="theInputTitle"></h1>
+            </span>
+        </div>
+
+        <div class="page" id="page4" title="Check Boxes">
+            <span>
+                <input type="checkbox" name="ck1" id="ck1">
+                <label id="ckl" for="ck1">你是否曾经想过反抗我们伟大的领袖习近平?</label>
+                <h1 id="rebel"></h1>
+            </span>
+        </div>
+
+    </main>
+    <script src="./index.js"></script>
+</body>
+
+</html>
