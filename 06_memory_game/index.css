@@ -34,3 +34,48 @@ h1 {
     font-weight: 300;
     font-size: 3rem;
 }
+
+#page2{
+    background-color: #167648;
+}
+
+#gameContainer{
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    background-color: #167648;
+}
+
+.card{
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    background-color: #124f35;
+    border-radius: 1rem;
+    box-shadow: 0 0 4px 3px whitesmoke;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+
+.card.show img{
+    opacity: 1;
+}
+
+.card:hover{
+    transform: translateY(-3px);
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: all .1s ease-in-out;
+}
+
+.card.checked{
+    opacity: .8;
+    border:  4px solid teal;
+}

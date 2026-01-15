@@ -10,6 +10,8 @@ var images = [
     "assets/sealhorse.jpg", "assets/zeacat.jpg"
 ]
 
+var flippedCards = []
+
 function setup(){
     noCanvas() // Vi bruger HTML elementer, så vi behøver ikke et canvas   
     shiftPage(currentPage) // Skift til startsiden
@@ -24,7 +26,26 @@ function setupGame( ){
     images.map(i =>{
         var container = select('#gameContainer')
         var card = createElement('div').addClass('card').attribute('img-source', i).parent(container)
-        createImg(i).parent(card)
+        createImg(i).parent(card).mousePressed(()=>{
+            if(flippedCards.length < 2){
+                card.addClass('show')
+                flippedCards.push(card)
+                if (flippedCards.length == 2){
+                    console.log(flippedCards)
+                    if(flippedCards[0].attribute('img-source') === flippedCards [1].attribute('img-source')){
+                        flippedCards[0].addClass('checked')
+                        flippedCards[1].addClass('checked')
+                        flippedCards = []
+                    }else{
+                        setTimeout(()=>{
+                            flippedCards[0].removeClass('show')
+                            flippedCards[1].removeClass('show')
+                            flippedCards = []
+                        }, 1500)
+                    }
+                }
+            }
+        })
     })
     shiftPage('#page2')
 }
