@@ -1,0 +1,19 @@
+body{
+    display: flex;
+    justify-content: center;
+    background-color: darksalmon;
+    margin: 0;
+}
+#bg{
+    max-width: 100vw;
+    max-height: 100vh;
+    width: auto;
+    height: auto;
+}
+
+.asta{
+    width: 50px;
+    top: 50px;
+    left: 50px;
+    position: absolute;
+}
