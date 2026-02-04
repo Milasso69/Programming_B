@@ -1,4 +1,4 @@
-[
+var data = [
     {
         "totalDmg": 410,
         "Wgt": 5.5,
