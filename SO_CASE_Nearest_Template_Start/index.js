@@ -25,7 +25,7 @@ var colLabel = 'Type' // Facit: Hvilken gruppe hører man til?
 // GUI Overskrifter (Gør det pænt for brugeren)
 var mainTitle = "Burnout Risk Predictor"
 var sectionTitle1 = "1. Indtast dine tal"
-var instructionText = "Angiv antal pauser og søvntimer:"
+var instructionText = "Angiv den totale skade og vægten af våbenet:"
 var sectionTitle2 = "2. Se Resultat i Grafen"
 
 // Farver til vores grupper (Labels) - Chart.js bruger disse
@@ -61,7 +61,7 @@ function setup() {
     // (Forklar: Vi konverterer tekst-rækker til rigtige Javascript-objekter)
     // -------------------------------------------------------------
     var rows = table.rows
-    rows = shuffle(rows).slice(0, 1000) // Vi begrænser til 1000 punkter for hastighedens skyld
+    //rows = shuffle(rows).slice(0, 1000) // Vi begrænser til 1000 punkter for hastighedens skyld
 
     data = rows.map(row => {
         var totalDmg =
@@ -75,8 +75,30 @@ function setup() {
         // HUSK: Alt fra CSV er tekst, så vi bruger Number() til tallene
         var x = totalDmg
         var y = Number(row.get(colY))
-        var label = row.get(colLabel)
-        
+        var label
+        var l = row.get(colLabel)
+        if(l=="Glintstone Staff" || l=="Sacred Seal" ){
+            label ="Spellcasting"
+        }else if(l=="Colossal Sword" || l=="Colossal Weapon" ){
+            label ="Large Strength Weapons"
+        }else if(l=="Bow" || l=="Light Bow" || l=='Crossbow' ){
+            label ="Bows"
+        }else if(l=="Greatsword"||l=="Greataxe"||l=="Greatbow"||l=="Curved Greatsword"||l=="Great Spear"){
+            label ="Great Weapons"
+        }else if (l=="Thrusting Sword"||l=="Whip") {
+            label="Medium Dex Weapon"
+        }else if (l=="Curved Sword"||l=="Flail"||l=="Heavy Thrusting Sword"||l=="Spear"||l=="Katana"||l=="Twinblade"||l=="Reaper") {
+            label="Large Dex Weapon"
+        }else if (l=="Hammer"||l=="Fist"||l=="Straight Sword"||l=="Axe") {
+            label="Small Strength Weapon"
+        }else if (l=="Halberd"||l=="Warhammer"||l=="Ballista") {
+            label="Medium Strength Weapon"
+        }else if (l=="Torch"||l=="Dagger"||l=="Claw") {
+            label="Small Dex Weapons"
+        }else{
+            label = l
+        }
+ 
         // Tjek om data er gyldig (ikke NaN og har en label)
         if (!isNaN(x) && !isNaN(y) && label) {
             return { x, y, label }
@@ -91,12 +113,12 @@ function setup() {
     var uniqueLabels = []
     data.map(point => {
         //Vi kigger på punktets label. Hvis vi ikke har set det label før, så må det være et unikt nyt et.
-        if (!uniqueLabels.includes(point.label)){
+        if (!uniqueLabels.includes(point.label)) {
             uniqueLabels.push(point.label)
         }
     })
     console.log("Her er dine fuck ass labels", uniqueLabels)
-    var datasets = uniqueLabels.map((label, index)=>{
+    var datasets = uniqueLabels.map((label, index) => {
         //filter funktionen giver os en gruppe med et bestemt label
         var groupData = data.filter(point => {
             return point.label == label
@@ -105,7 +127,7 @@ function setup() {
 
         //retuner den færdige gruppe med alle datapunkterne for hvert label med datasets
         return {
-            label:label,
+            label: label,
             data: groupData,
             backgroundColor: color,
             pointRadius: 5,
@@ -113,5 +135,19 @@ function setup() {
         }
     })
     console.log("Her er dine fuck ass datasets", datasets)
+
+    //Vi vil nu oprette grafen med chart.js
+    const canvasChart = document.getElementById('chartCanvas')
+    myChart = new Chart(canvasChart, {
+        type: 'scatter',
+        data: { datasets: datasets },
+        options: {
+            //scales styre hvad x og y akserne hedder
+            scales: {
+                x: { title: { display: true, text: colX } },
+                y: { title: { display: true, text: colY } }
+            }
+        }
+    })
 }
 
