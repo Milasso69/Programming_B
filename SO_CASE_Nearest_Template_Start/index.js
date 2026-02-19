@@ -83,15 +83,13 @@ function setup() {
             label ="Large Strength Weapons"
         }else if(l=="Bow" || l=="Light Bow" || l=='Crossbow' ){
             label ="Bows"
-        }else if(l=="Greatsword"||l=="Greataxe"||l=="Greatbow"||l=="Curved Greatsword"||l=="Great Spear"){
-            label ="Great Weapons"
         }else if (l=="Thrusting Sword"||l=="Whip") {
             label="Medium Dex Weapon"
         }else if (l=="Curved Sword"||l=="Flail"||l=="Heavy Thrusting Sword"||l=="Spear"||l=="Katana"||l=="Twinblade"||l=="Reaper") {
             label="Large Dex Weapon"
         }else if (l=="Hammer"||l=="Fist"||l=="Straight Sword"||l=="Axe") {
             label="Small Strength Weapon"
-        }else if (l=="Halberd"||l=="Warhammer"||l=="Ballista") {
+        }else if (l=="Halberd"||l=="Warhammer"||l=="Ballista"||l=="Greatsword"||l=="Greataxe"||l=="Greatbow"||l=="Curved Greatsword"||l=="Great Spear") {
             label="Medium Strength Weapon"
         }else if (l=="Torch"||l=="Dagger"||l=="Claw") {
             label="Small Dex Weapons"
