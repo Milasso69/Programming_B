@@ -75,28 +75,28 @@ function setup() {
         // HUSK: Alt fra CSV er tekst, så vi bruger Number() til tallene
         var x = totalDmg
         var y = Number(row.get(colY))
-        var label
-        var l = row.get(colLabel)
-        if(l=="Glintstone Staff" || l=="Sacred Seal" ){
-            label ="Spellcasting"
-        }else if(l=="Colossal Sword" || l=="Colossal Weapon" ){
-            label ="Large Strength Weapons"
-        }else if(l=="Bow" || l=="Light Bow" || l=='Crossbow' ){
-            label ="Bows"
-        }else if (l=="Thrusting Sword"||l=="Whip") {
-            label="Medium Dex Weapon"
-        }else if (l=="Curved Sword"||l=="Flail"||l=="Heavy Thrusting Sword"||l=="Spear"||l=="Katana"||l=="Twinblade"||l=="Reaper") {
-            label="Large Dex Weapon"
-        }else if (l=="Hammer"||l=="Fist"||l=="Straight Sword"||l=="Axe") {
-            label="Small Strength Weapon"
-        }else if (l=="Halberd"||l=="Warhammer"||l=="Ballista"||l=="Greatsword"||l=="Greataxe"||l=="Greatbow"||l=="Curved Greatsword"||l=="Great Spear") {
-            label="Medium Strength Weapon"
-        }else if (l=="Torch"||l=="Dagger"||l=="Claw") {
-            label="Small Dex Weapons"
-        }else{
+        var label = row.get(colLabel)
+        /*var l = row.get(colLabel)
+        if (l == "Glintstone Staff" || l == "Sacred Seal") {
+            label = "Spellcasting"
+        } else if (l == "Colossal Sword" || l == "Colossal Weapon") {
+            label = "Large Strength Weapons"
+        } else if (l == "Bow" || l == "Light Bow" || l == 'Crossbow') {
+            label = "Bows"
+        } else if (l == "Thrusting Sword" || l == "Whip") {
+            label = "Medium Dex Weapon"
+        } else if (l == "Curved Sword" || l == "Flail" || l == "Heavy Thrusting Sword" || l == "Spear" || l == "Katana" || l == "Twinblade" || l == "Reaper") {
+            label = "Large Dex Weapon"
+        } else if (l == "Hammer" || l == "Fist" || l == "Straight Sword" || l == "Axe") {
+            label = "Small Strength Weapon"
+        } else if (l == "Halberd" || l == "Warhammer" || l == "Ballista" || l == "Greatsword" || l == "Greataxe" || l == "Greatbow" || l == "Curved Greatsword" || l == "Great Spear") {
+            label = "Medium Strength Weapon"
+        } else if (l == "Torch" || l == "Dagger" || l == "Claw") {
+            label = "Small Dex Weapons"
+        } else {
             label = l
-        }
- 
+        }*/
+
         // Tjek om data er gyldig (ikke NaN og har en label)
         if (!isNaN(x) && !isNaN(y) && label) {
             return { x, y, label }
@@ -132,6 +132,17 @@ function setup() {
             pointHoverRadius: 8
         }
     })
+
+    datasets.push({
+        label: 'Dit gæt',
+        data: [],
+        pointStyle: 'crossRot',
+        pointRadius: 12,
+        backgroundColor: 'black',
+        borderColor: 'black',
+        borderWidth: 4
+    })
+
     console.log("Her er dine fuck ass datasets", datasets)
 
     //Vi vil nu oprette grafen med chart.js
@@ -147,5 +158,85 @@ function setup() {
             }
         }
     })
+    setupControls()
 }
 
+function setupControls() {
+    var xValues = data.map(point => point.x)
+    var yValues = data.map(point => point.y)
+
+    var minX = 0
+    var minY = 0
+    var maxX = 700
+    var maxY = 30
+    console.log('Her er dine fuck ass værdiger', minX, maxX, minY, maxY)
+
+    var xSlider = select('#input-x')
+    var ySlider = select('#input-y')
+
+    xSlider.attribute('min', Math.floor(minX))
+    xSlider.attribute('max', Math.ceil(maxX))
+    xSlider.attribute('step', (maxX - minX) / 700)
+    xSlider.value(minX + maxX / 2)
+    ySlider.attribute('min', minY)
+    ySlider.attribute('max', maxY)
+    ySlider.attribute('step', (maxY - minY) / 60)
+    ySlider.value(minY + maxY / 2)
+
+    xSlider.input(() => select('#val-x').html(xSlider.value()))
+    ySlider.input(() => select('#val-y').html(ySlider.value()))
+
+    select('#val-x').html(xSlider.value())
+    select('#val-y').html(ySlider.value())
+
+    var kSlider = select('#k-slider')
+    kSlider.input(() => select('#k-value').html(kSlider.value()))
+
+
+    select('#predict-btn').mousePressed(classifyUnknown)
+}
+
+function classifyUnknown() {
+    //Vi har tænkt os at aflæse værdierne fra slidersne og gem dem i to variabler
+    var inputX  = select('#input-x').value()
+    var inputY  = select('#input-y').value()
+    //Indsæt punktet fra sliderne i grafen
+    var guessDataset = myChart.data.datasets[myChart.data.datasets.length - 1]
+    guessDataset.data = [{x: inputX, y: inputY}]
+    myChart.update()
+    //Løb data i gennem - altså alle datapunkterne - og find hver og ens afstand til vores gæt
+    data = data.map(p => {
+        //dist ligger i p5.js og den laver pythagoras for os
+        p.distance = dist(inputX, inputY, p.x, p.y)
+        return p
+    })
+    //Så sortere vi dem så dem med mndste afstand til gættet kommer først
+    data.sort((a,b)=>a.distance - b.distance)
+    //console.log(data)
+
+    //Spørg de 'k' nærmeste hvilken gruppe de hører til
+    var k = select('#k-slider').value()
+    var n = data.slice(0,k)
+    //De stemmer om resultatet, og vinderen er fundet
+    var votes = {}
+    n.map(n=>{
+        if(votes[n.label] === undefined){
+            votes[n.label] = 0
+        }
+        votes[n.label] += 1
+    })
+    //console.log(votes)
+
+    var allLabels = Object.keys(votes)
+    var winner = allLabels[0]
+    allLabels.map(l=>{
+        if(votes[l]>votes[winner]){
+            winner = l
+        }
+    })
+    //Vis i resultat feltet hvilken klasse/label gættet tilhører
+
+    console.log(winner)
+
+    select('#winner').html(winner)
+}
