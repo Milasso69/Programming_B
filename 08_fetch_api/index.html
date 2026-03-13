@@ -5,31 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web template with p5.js</title>
-
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+        integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="index.css">
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js"></script>
 </head>
 
 <body>
-    <div class="menuWrapper">
-        <div class="burgerIcon">☰</div>
+    <div class="menu-wrapper">
+        <div class="burger-icon">≡</div>
         <div class="sidebar">
-
         </div>
     </div>
     <main>
-        <div class="page" id="page1" title="page1">
-            <div id="card">
 
+        <div class="page" id="page1" title="Side 1">
+            <div id="player">
+                <div class="cards"></div>
+                <span class="buttons">
+                    <button id="playerDrawBtn">Hit</button>
+                    <button id="playerStandBtn">Stand</button>
+                </span>
+                <div class="total">Players total</div>
             </div>
-            <button id="getCardBtn">Nyt Kort</button>
+            <div id="dealer">
+                <div class="cards"></div>
+                <div class="total">Dealers total</div>
+            </div>
         </div>
-        <div class="page" id="page2" title="page2">
 
+        <div class="page" id="page2" title="Side 2">
+            <span>
+                <h1>You lose bitch</h1>
+                <button id="restartBtn">Restart</button>
+            </span>
         </div>
-        <div class="page" id="page3" title="page3">
 
+        <div class="page" id="page3" title="Side 3">
+            <span>
+                <h1>You win! Congrats</h1>
+                <button id="playBtn">Play Again</button>
+            </span>
         </div>
+
     </main>
     <script src="./index.js"></script>
 </body>
