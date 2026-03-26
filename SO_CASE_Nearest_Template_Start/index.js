@@ -75,8 +75,8 @@ function setup() {
         // HUSK: Alt fra CSV er tekst, så vi bruger Number() til tallene
         var x = totalDmg
         var y = Number(row.get(colY))
-        var label = row.get(colLabel)
-        /*var l = row.get(colLabel)
+        var label //= row.get(colLabel)
+        var l = row.get(colLabel)
         if (l == "Glintstone Staff" || l == "Sacred Seal") {
             label = "Spellcasting"
         } else if (l == "Colossal Sword" || l == "Colossal Weapon") {
@@ -95,7 +95,7 @@ function setup() {
             label = "Small Dex Weapons"
         } else {
             label = l
-        }*/
+        }
 
         // Tjek om data er gyldig (ikke NaN og har en label)
         if (!isNaN(x) && !isNaN(y) && label) {

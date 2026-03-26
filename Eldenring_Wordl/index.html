@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elden Ringdle</title>
+
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.min.js"></script>
+</head>
+
+<body>
+    <div class="menuWrapper">
+        <div class="burgerIcon">☰</div>
+        <div class="sidebar">
+
+        </div>
+    </div>
+    <main>
+        <div class="page" id="page1" title="page1">
+            <img src="./asstes/download-removebg-preview.png" alt="" id="logo">
+            <button id="playBtn">Play</button>
+        </div>
+        <div class="page" id="page2" title="page2">
+            <h1 id="gameName">Elden Ringdle</h1>
+            <span>
+                <input type="text" id="guess">
+                <button id="guessBtn">Guess</button>
+            </span>
+            <div id="guessBox">
+                <table>
+                    <tr id="guessTypes">
+                        <th class="guessType">Weapon</th>
+                        <th class="guessType">Weapon Type</th>
+                        <th class="guessType">Damage</th>
+                        <th class="guessType">Damage Type</th>
+                        <th class="guessType">Scaling</th>
+                        <th class="guessType">Scaling Type</th>
+                        <th class="guessType">Weight</th>
+                        <th class="guessType">Smithing Type</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="page" id="page3" title="page3">
+
+        </div>
+    </main>
+    <script src="./index.js"></script>
+</body>
+
+</html>

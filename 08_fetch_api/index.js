@@ -80,6 +80,7 @@ async function drawCard(newState) {
         dealer.cards[0].hidden = false
         showCards()
         //Regn total af dealer ud
+        
         //Træk kort indtil, hvis total => 17 eller player, stop og check om spileleren har vundet.
     }
 
