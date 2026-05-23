@@ -1,7 +1,7 @@
 // ============================================
 // STATE
 // ============================================
-var currentPage = '#scene2'
+var currentPage = '#start'
 var gameState = 0
 var timerInterval = null
 var seconds = 0
