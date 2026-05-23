@@ -61,7 +61,7 @@ function setup() {
 
     select('#decline1').mousePressed(() => {
         click.play()
-        select('#textBox1').html('<p>Too bad so sad! Your comming along with me anyway!</p>')
+        select('#textBox1').html('<p>Too bad so sad! Your coming along with me anyway!</p>')
 
         var proceedButton = createButton('Proceed')
         proceedButton.class('scene1Button')
