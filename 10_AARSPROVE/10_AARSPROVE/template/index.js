@@ -38,6 +38,7 @@ function setup() {
     // ---- STARTSIDE ----
     select('#btn-start').mousePressed(() => {
         click.play()
+        select('#timer').show()
         startGame()
     })
 
@@ -276,7 +277,7 @@ function findSymbol(id) {
 // ============================================
 // HIGH SCORE (Firestore)
 // ============================================
-function loadHighScores() {
+/*function loadHighScores() {
     scoresRef.orderBy('seconds', 'asc').limit(10).onSnapshot(snap => {
         select('#score-list').html('')
         snap.forEach(doc => {
@@ -287,7 +288,7 @@ function loadHighScores() {
             select('#score-list').child(li)
         })
     })
-}
+}*/
 
 function saveHighScore() {
     var name = select('#player-name').value().trim()
@@ -310,6 +311,7 @@ function saveHighScore() {
 // ============================================
 function resetGame() {
     select('#timer').html('0 sek')
+    select('#timer').hide()
 
     // Nulstil rum 1
     select('#room1-found').html('Fundet: 0 / 15')
