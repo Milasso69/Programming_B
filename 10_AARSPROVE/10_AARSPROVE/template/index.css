@@ -1,0 +1,235 @@
+body {
+    overflow: hidden;
+    background: #111;
+    color: white;
+}
+
+/* Sider — skjult til venstre, vist med .show */
+.page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    transition: left 0.5s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+.page.show { left: 0; }
+
+/* Overlay — centreret indhold oven på baggrund */
+.overlay {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+/* Hint — centreret tekst i toppen af et rum */
+.hint {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    z-index: 10;
+}
+
+/* Hotspot — klikbart element placeret i et rum */
+.hotspot {
+    position: absolute;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.hotspot:hover { transform: scale(1.3); }
+
+button { background: white; }
+
+/* Code-input — skjult, vises med .show */
+.code-input {
+    position: absolute;
+    inset: 0;
+    display: none;
+    place-items: center;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 20;
+}
+.code-input.show { display: grid; }
+
+
+/* Timer */
+#timer {
+    position: fixed;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.4rem 1rem;
+    border-radius: 0.5rem;
+    z-index: 100;
+}
+
+/* High score liste */
+#score-list { list-style: none; }
+#score-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+#win{
+    background-position: center top;
+}
+
+.timer{
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 4rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 1rem;
+    padding: 0.5rem;
+    width:5rem;
+    height:4rem;
+    display:grid;
+    place-items:center;
+}
+
+.textBox{
+    position: absolute;
+    bottom: 1rem;
+    font-size: 4rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 1rem;
+    padding: 2rem;
+    width: 95%;
+    display: grid;
+    place-items: center;
+}
+
+#pressToContinue{
+    font-size: 2rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+}
+
+.scene1Button{
+    background-color: rgba(0, 0, 0, 0.3);
+    border: white solid 2px;
+    border-radius: 1rem;
+    color: white;
+    font-size: 3rem;
+}
+
+.click-counter{
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 1rem;
+    width: 15rem;
+    display: grid;
+    place-items: center;
+}
+
+.dot{
+    background-color: red;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 6rem;
+    cursor: pointer;
+}
+
+
+#dot1{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+#dot2{
+    position: absolute;
+    top: 15%;
+    left: 67%;
+}
+#dot3{
+    position: absolute;
+    top: 55%;
+    left: 47%;
+}
+#dot4{
+    position: absolute;
+    top: 16.5%;
+    left: 45%;
+}
+#dot5{
+    position: absolute;
+    top: 50%;
+    left: 32%;
+}
+#dot6{
+    position: absolute;
+    top: 67%;
+    left: 69%;
+}
+#dot7{
+    position: absolute;
+    top: 33%;
+    left: 65%;
+}
+#dot8{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+}
+#dot9{
+    position: absolute;
+    top: 80%;
+    left: 36%;
+}
+
+
+/* ---- Rum-baggrunde ---- */
+#start    { background-image: url('./assets/ER_Location_Lands_Between.png'); }
+#room1    { background-image: url('./assets/ER_Margit_Boss.png'); }
+#room2    { background-image: url('./assets/Colosseum.jpg'); }
+#room3    { background-image: url('./assets/DMC.png'); }
+#win      { background-image: url('./assets/End.png'); }
+
+#scene1   { background-image: url('./assets/Melina.jpg'); place-items: center;}
+#scene2   { background-image: url('./assets/spaceCenter.png'); place-items: center;}
+
+#diavolo {
+    position: absolute;
+    height: 10%; 
+    top: 75%; 
+    left: 50%;
+    cursor: pointer;
+}
+
+.devil{
+    position: absolute;
+    height: 90%;
+    cursor: pointer;
+}
+
+#devil1{
+    top: 0;
+    left: 0;
+}
+
+#devil2{
+    top: 0;
+    right: 0;
+}
+
+#pucci{
+    position: absolute;
+    height: 200%;
+    bottom: -100%;
+    left: 20%;
+}

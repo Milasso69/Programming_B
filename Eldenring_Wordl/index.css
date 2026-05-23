@@ -88,7 +88,7 @@ body,
     left: 0;
 }
 
-#playBtn{
+#playBtn {
     background-color: white;
     border-radius: 1.5rem;
     cursor: pointer;
@@ -103,23 +103,24 @@ body,
     background-position: center;
 }
 
-#logo{
+#logo {
     width: 60rem;
 }
 
-#gameName{
+#gameName {
     font-size: 4rem;
     background-color: rgba(0, 0, 0, 0.5);
     color: goldenrod;
 }
 
-#page2{
+#page2 {
     grid-template-rows: 1fr 1fr 4fr;
     background-image: url(./asstes/EldenRing_Background2.jpg);
     background-size: cover;
     background-position: center;
 }
-#guessBtn{
+
+#guessBtn {
     background-color: white;
     border-radius: 1.5rem;
     cursor: pointer;
@@ -127,11 +128,11 @@ body,
     font-size: 1.3rem;
 }
 
-input{
+input {
     font-size: 1.3rem;
 }
 
-#guessBox{
+#guessBox {
     height: 70vh;
     width: 100vw;
     grid-template-rows: 1fr 1fr;
@@ -139,7 +140,7 @@ input{
     overflow: scroll;
 }
 
-.guessType{
+.guessType {
     background-color: rgba(0, 0, 0, 0.8);
     font-size: 1.3rem;
     border: 1px solid black;
@@ -147,4 +148,24 @@ input{
     padding: 0.25rem 0.5rem;
     height: 20px;
     width: 240px;
+}
+
+.guess {
+    text-align: center;
+    padding: 0.5rem;
+    background-color: black;
+    height: auto;
+    color: whitesmoke;
+}
+
+.correct {
+    background-color: rgb(18, 188, 18);
+}
+
+.close {
+    background-color: rgb(231, 186, 10);
+}
+
+.wrong {
+    background-color: red;
 }

@@ -2,6 +2,7 @@ var currentPage = '#page2'
 var table
 var wpns = []
 
+
 function preload() {
     // Indlæs data fil før programmet starter
     table = loadTable('./asstes/elden_ring_weapon.csv', 'csv', 'header')
@@ -61,10 +62,9 @@ function setup() {
     })
 
     shuffleWpns()
-
-    //select('#playBtn').mousePressed(()=>{shiftPage('#page2')})
-
-
+    var weapon = wpns[0]
+    
+    console.log("Her er dit fuck ass våben", weapon)
 
     //sæt menu op
     //Hent alle sider som et array
@@ -114,13 +114,13 @@ function shuffleWpns() {
 
             if (value == "Phy") {
                 return "Physical";
-            }else if (value == "Mag") {
+            } else if (value == "Mag") {
                 return "Magic";
-            }else if (value == "Fir") {
+            } else if (value == "Fir") {
                 return "Fire";
-            }else if (value == "Lit") {
+            } else if (value == "Lit") {
                 return "Lightning";
-            }else if (value == "Hol") {
+            } else if (value == "Hol") {
                 return "Holy";
             }
         });
@@ -150,13 +150,13 @@ function shuffleWpns() {
         var sT = scalingType.map((value) => {
             if (value == "Str") {
                 return "Strength";
-            }else if (value == "Dex") {
+            } else if (value == "Dex") {
                 return "Dexterity";
-            }else if (value == "Int") {
+            } else if (value == "Int") {
                 return "Inteligence";
-            }else if (value == "Fai") {
+            } else if (value == "Fai") {
                 return "Faith";
-            }else if (value == "Arc") {
+            } else if (value == "Arc") {
                 return "Arcane";
             }
         })
@@ -180,6 +180,7 @@ function shuffleWpns() {
     })
     wpns = shuffle(wpns)
     console.log(wpns)
+    //console.log(wpns[0])
 }
 
 function shiftPage(newPage) {
