@@ -267,7 +267,7 @@ button { background: white; }
 #room4    { background-image: url('./assets/desert2.jpg'); place-items: center;}
 #win      { background-image: url('./assets/End.png'); }
 
-#scene1   { background-image: url('./assets/Melina.jpg'); place-items: center;}
+#scene1   { background-image: url('./assets/melina.jpg'); place-items: center;}
 #scene2   { background-image: url('./assets/spaceCenter.png'); place-items: center;}
 #scene3   { background-image: url('./assets/arizonaDesert.jpg'); place-items: center;}
 

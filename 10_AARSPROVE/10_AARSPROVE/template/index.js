@@ -562,3 +562,5 @@ function resetGame() {
     window.location.reload();
 }
 
+
+
