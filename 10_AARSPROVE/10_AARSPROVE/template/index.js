@@ -29,6 +29,23 @@ var devil2Clicks = 0
 var dinosFound = 0
 
 // Firestore reference
+const firebaseConfig = {
+    apiKey: "AIzaSyBhyZm9GViTO00TzmeFVryr93dsN-RX09k",
+    authDomain: "prog-aasproeve.firebaseapp.com",
+    projectId: "prog-aasproeve",
+    storageBucket: "prog-aasproeve.firebasestorage.app",
+    messagingSenderId: "888903294583",
+    appId: "1:888903294583:web:c984ef74f9e7c18aaf7072",
+    measurementId: "G-PFPT4E2ZS7"
+};
+
+//Opret forbindelse til firebase
+firebase.initializeApp(firebaseConfig)
+console.log("Firebase Startede med: ", firebaseConfig.projectId)
+
+//Vi får nu et firestore object som vi kan bruge til at komunikere til databasen firestore
+var db = firebase.firestore()
+console.log("forbindelse til firestore oprettet")
 var scoresRef = db.collection('highscores')
 
 
