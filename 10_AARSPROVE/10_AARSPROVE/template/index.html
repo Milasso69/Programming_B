@@ -34,6 +34,7 @@
             </div>
         </div>
 
+        <!-- SCENE 1: MELINA -->
         <div class="page" id="scene1" title="cutscene - Melina">
             <div class="textBox" id="textBox1">
                 <i id="pressToContinue">Press any key to continue</i>
@@ -42,12 +43,13 @@
                     maiden and guide you through these lands..."</p>
                 <span hidden id="s1t3">
                     <b>Do you accept?</b>
-                    <button id="accept1" class="scene1Button">Yes</button>
-                    <button id="decline1" class="scene1Button">No</button> </span>
+                    <button id="accept1" class="sceneButton">Yes</button>
+                    <button id="decline1" class="sceneButton">No</button>
+                </span>
             </div>
         </div>
 
-        <!-- RUM 1: JUNGLEN -->
+        <!-- RUM 1: Margit -->
         <div class="page" id="room1" title="Margit">
             <div id="room1-hint" class="hint">Skynd dig! Tryk på alle de røde prikker!</div>
             <div id="room1-found" class="click-counter">Clicked: 0 / 10</div>
@@ -68,8 +70,8 @@
             </div>
         </div>
 
-        <!-- RUM 2: LYSNINGEN -->
-        <div class="page" id="room2" title="Lysningen">
+        <!-- RUM 2: Diavolo -->
+        <div class="page" id="room2" title="Diavolo">
             <div id="room2-hint" class="hint">Find den person der skiller sig ud.</div>
             <div class="timer" id="room2Timer">
                 10
@@ -87,28 +89,108 @@
             </div>
         </div>
 
+        <!-- SCENE 2: FATHER PUCCI -->
         <div class="page" id="scene2" title="Father Pucci">
-            <img src="./assets/pucci.png" id="pucci">
+            <div hidden id="s2lost">
+                <img src="./assets/you died.png" alt="you died" id="youDied">
+                <p id="s2lt">Father Pucci couldn't be trusted...</p>
+            </div>
+            <video hidden src="./assets/made in heaven.mp4" id="madeInHeaven"></video>
+            <img hidden src="./assets/pucci.png" id="pucci">
             <div class="textBox" id="textbox2">
-
+                <i id="pressToContinue">Press any key to continue</i>
+                <p id="s2t1">You suddenly find yourself in front of the Kennedy Space Center in Florida. <br> You hear
+                    footsteps approach you...</p>
+                <p hidden id="s2t2">You see an odd man, counting in prime numbers as he approaches you... <br> "67...
+                    71... 73... 79..."</p>
+                <p hidden id="s2t3">"Hello stranger... <br>I am Father Pucci."</p>
+                <p hidden id="s2t4">"Please, join me on my travels... <br> You can trust me..."</p>
+                <span hidden id="s2t5">
+                    <b>Will you join him?</b>
+                    <button id="accept2" class="sceneButton">Yes</button>
+                    <button id="decline2" class="sceneButton">No</button>
+                </span>
             </div>
         </div>
 
-        <!-- SLUTSIDE -->
+        <!-- SCENE 3: ARIZONA DESERT -->
+        <div class="page" id="scene3" title="Arizona Desert">
+            <div hidden id="s3lost">
+                <img src="./assets/you died.png" alt="you died" id="youDied">
+                <p id="s3lt">The president doesn't take kindly to trespassers...</p>
+            </div>
+            <img src="./assets/jesus.png" alt="corpse" id="jesus">
+            <img hidden src="./assets/valentine.png" id="valentine">
+            <div class="textBox" id="textBox3">
+                <i id="pressToContinue">Press any key to continue</i>
+                <p id="s3t1">You wake up in the middle of nowhere... Alone... <br>You try and figure out your
+                    surroundings. <br> "This must be the Arizona desert." You tell yourself.</p>
+                <p hidden id="s3t2">You check the date on your phone (which somehow still works), <br> and you realize
+                    that you're in the year 1890...</p>
+                <p hidden id="s3t3">Over in the distance, you spot something... <br> A corpse? </p>
+                <span hidden id="s3t4">
+                    <p><b>T̷̲̪͇͖͑͆Ỏ̶̹̯͎̀͌̄Ų̷̲̞̑̋͠͠C̷̡̦̟̒H̶͍̀̐͝ ̴̙̹͔͆̃͜T̵̛̬̞͖̆͐H̶̞̘̋̄E̴̛͇̜͇̎̿͂
+                            ̸̛̰̬͍̄͐͑C̶̙̥̥̳͛̉̋̓Ó̸͇͓̜͔̊͛̚R̴̞͎͓̱͠͝P̴̬̗̃S̴̭̒̄E̴̦̭̠̙͗?̴̱̲͈͗̈́̓?̵̨̡̟̻̎̅̋̚?̷̻́</b></p>
+                    <button id="accept3" class="sceneButton">Yes</button>
+                    <button id="decline3" class="sceneButton">No</button>
+                </span>
+                
+                <p hidden id="s3t5a">You feel strange... But not in a bad way per se... <br> You feel... Blessed?</p>
+                <p hidden id="s3t6a">"If your heart is wavering, do not shoot. <br> Because then a new path will be open
+                    for you."</p>
+                <p hidden id="s3t7a">It is Jesus talking to you. <br> It seems that he has granded you some sort of
+                    supernatural ability.</p>
+                <b hidden id="s3t8a">A "Stand" ability.</b>
+
+                <i hidden id="s3t5b">"~Dojyaaaaaaan~"</i>
+                <b hidden id="s3t6b">THE PRESIDENT OF THE UNITED STATES?!?!?!</b>
+                <p hidden id="s3t7b">The president pulls out a gun and shoots you... <br>"That corpse belongs to me..."
+                </p>
+            </div>
+        </div>
+
+        <div class="page" id="room4">
+            <div class="click-counter hidden" id="room4-found">Found: 0 / 6</div>
+
+
+            <img hidden src="./assets/diego.png" id="diego">
+            <img hidden src="./assets/dino1.png" class="dino" id="dino1">
+            <img hidden src="./assets/dino2.png" class="dino" id="dino2">
+            <img hidden src="./assets/dino3.png" class="dino" id="dino3">
+            <img hidden src="./assets/dino4.png" class="dino" id="dino4">
+            <img hidden src="./assets/dino5.png" class="dino" id="dino5">
+            <img hidden src="./assets/dino6.png" class="dino" id="dino6">
+
+            <div class="timer hidden" id="room4Timer">
+                10
+            </div>
+
+            <div class="textBox" id="textBox4">
+                <i id="pressToContinue">Press any key to continue</i>
+                <p id="r4t1">Hmmmm... It seems like you're a part of this "Steel Ball Run" race. <br> If you win it, you'll win $50.000.000</p>
+                <p hidden id="r4t2">OH NO! A SUPPRIZE STAND USER ATTACK! <br> QUICKLY, FIND ALL THE HIDDEN DINOSAURS, SO YOU CAN KILL THE STAND USER!!!</p>
+                <b hidden id="r4t3">YOU ONLY HAVE 10 SECONDS!!!</b>
+            </div>
+        </div>
+
+        <!-- SLUTSIDER -->
         <div class="page" id="win" title="vundet">
             <div class="overlay">
-                <h1>Du slap fri!</h1>
+                <h1>YOU WON THE STEEL BALL RUN!!!</h1>
+                <p>After winning, you settled down in a small town in Japan called Morioh, <br> and started a fruit palor shop, with the money you won.</p>
                 <p id="final-time"></p>
                 <div id="save-score">
-                    <input type="text" id="player-name" placeholder="Dit navn">
-                    <button id="btn-save">Gem high score</button>
+                    <input type="text" id="player-name" placeholder="Your name">
+                    <button id="btn-save">Save high score</button>
                 </div>
-                <button id="btn-restart">Spil igen</button>
+                <button id="btn-restart">Play again</button>
             </div>
         </div>
 
         <div class="page" id="lost" title="tabte">
-            HAHA DU TABTE
+            <img src="./assets/you died.png" alt="you died" id="youDied">
+            <p id="lostText">You have died. Try again?</p>
+            <button id="btn-try-again">Try again</button>
         </div>
 
     </main>

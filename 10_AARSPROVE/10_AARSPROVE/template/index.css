@@ -97,7 +97,7 @@ button { background: white; }
     padding: 0.5rem;
     width:5rem;
     height:4rem;
-    display:grid;
+    display: grid;
     place-items:center;
 }
 
@@ -120,13 +120,41 @@ button { background: white; }
     left: 1rem;
 }
 
-.scene1Button{
+.sceneButton{
     background-color: rgba(0, 0, 0, 0.3);
     border: white solid 2px;
     border-radius: 1rem;
     color: white;
     font-size: 3rem;
 }
+
+#s2lost{
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    place-items: center;
+}
+
+#youDied{
+    width: 60vw;
+    position: absolute;
+    top: 6.7rem;
+    left: 20vw;
+}
+
+#s2lt{
+    position: absolute;
+    font-size: 4rem;
+    color: rgb(147, 22, 22);
+    bottom: 30rem;
+}
+
+#madeInHeaven{
+    position: absolute;
+    width: 100vw;
+    bottom: 0;
+}
+
 
 .click-counter{
     font-size: 2rem;
@@ -135,6 +163,44 @@ button { background: white; }
     width: 15rem;
     display: grid;
     place-items: center;
+}
+
+.hidden{
+    display: none;
+}
+
+#win p{
+    font-size: 2.5rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+}
+
+#win h1{
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+}
+
+#lost{
+    background-color: black;
+    display: grid;
+    place-items: center;
+}
+
+#lostText{
+    position: absolute;
+    color: rgb(158, 19, 19);
+    font-size: 4rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    bottom: 35rem;
+}
+
+#btn-try-again{
+    position: absolute;
+    bottom: 20rem;
 }
 
 .dot{
@@ -198,10 +264,12 @@ button { background: white; }
 #room1    { background-image: url('./assets/ER_Margit_Boss.png'); }
 #room2    { background-image: url('./assets/Colosseum.jpg'); }
 #room3    { background-image: url('./assets/DMC.png'); }
+#room4    { background-image: url('./assets/desert2.jpg'); place-items: center;}
 #win      { background-image: url('./assets/End.png'); }
 
 #scene1   { background-image: url('./assets/Melina.jpg'); place-items: center;}
 #scene2   { background-image: url('./assets/spaceCenter.png'); place-items: center;}
+#scene3   { background-image: url('./assets/arizonaDesert.jpg'); place-items: center;}
 
 #diavolo {
     position: absolute;
@@ -232,4 +300,96 @@ button { background: white; }
     height: 200%;
     bottom: -100%;
     left: 20%;
+}
+
+#jesus{
+    cursor: pointer;
+    position: absolute;
+    height: 10%;
+    top: 64%;
+    left: 26%;
+}
+
+#s3t4{
+    color: rgb(158, 19, 19);
+}
+
+#accept3{
+    color: rgb(158, 19, 19);
+    border: rgb(158, 19, 19) solid 2px;
+}
+
+#decline3{
+    color: rgb(158, 19, 19);
+    border: rgb(158, 19, 19) solid 2px;
+}
+
+#valentine{
+    position: absolute;
+    height: 200%;
+    bottom: -110%;
+     left: 22%;
+}
+
+#s3lost{
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    place-items: center;
+}
+
+#s3lt{
+    position: absolute;
+    font-size: 4rem;
+    color: rgb(147, 22, 22);
+    bottom: 30rem;
+}
+
+#diego{
+    position: absolute;
+    height: 50%;
+    top: 25%;
+    left: 35%;
+}
+
+.dino{
+    position: absolute;
+    height: 20%;
+    cursor: pointer;
+}
+
+#dino1{
+    top: 30%;
+    left: 67%;
+    height: 10%;
+}
+#dino2{
+    top: 75%;
+    left: 25%;
+    height: 15%;
+}
+#dino3{
+    top: 40%;
+    left: 25%;
+    height: 15%;
+}
+#dino4{
+    top: 65%;
+    left: 72%;
+    height: 18%;
+}
+#dino5{    
+    top: 55%;
+    left: 93%;
+    height: 10%;
+}
+#dino6{
+    top: 62%;
+    left: 2%;
+    height: 11%;
+}
+
+#room4-found{
+    position: absolute;
+    left: 0;
 }
