@@ -19,21 +19,21 @@ function setup(){
         }, 2000)
     })
 
-    client.subscribe('simon')
-    client.subscribe('simon/page')
+    client.subscribe('feet')
+    client.subscribe('feet/page')
 
     //Her får vi beskeder på forskellige topics vi abonnerer på 
     client.on('message', (topic, msg) => {
         console.log(topic, msg.toString())
         msg = msg.toString()
-        if(topic == 'simon/page'){
+        if(topic == 'feet/page'){
             console.log('nu skal der skiftes side')
             //ER DET ET TAL?
             msg = '#page' + msg
             shiftPage(msg)
         }
         //NU SKAL DER SKE NOGET SPÆNDENDE
-        if(topic == 'simon'){
+        if(topic == 'feet'){
             select('#msg').elt.textContent = 'Besked på topic ' + topic + ' med teksten ' + msg
         }
     })
