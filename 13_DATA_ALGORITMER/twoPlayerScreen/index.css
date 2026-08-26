@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+    position: fixed;
+    top: 100vh;
+    padding:10rem;
+}
+
+.page.show {
+    top: 0;
+}
+
+#players{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#playerA img, #playerB img{
+    width:100px;
+}

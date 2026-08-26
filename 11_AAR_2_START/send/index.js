@@ -16,13 +16,13 @@ function setup(){
     })
 
     select('#btn1').mousePressed( ()=>{
-        client.publish('feet/page', '1')
+        client.publish('JEGELSKERMÆND/page', '5')
     })
     select('#btn2').mousePressed( ()=>{
-        client.publish('feet', 'open')
+        client.publish('JEGELSKERMÆND', 'open')
     })
     select('#btn3').mousePressed( ()=>{
-        client.publish('feet/page', '2')
+        client.publish('JEGELSKERMÆND/page', '2')
     })
 
 }

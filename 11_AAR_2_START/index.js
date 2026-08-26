@@ -19,26 +19,26 @@ function setup(){
         }, 2000)
     })
 
-    client.subscribe('feet')
-    client.subscribe('feet/page')
+    client.subscribe('JEGELSKERMÆND')
+    client.subscribe('JEGELSKERMÆND/page')
 
     //Her får vi beskeder på forskellige topics vi abonnerer på 
     client.on('message', (topic, msg) => {
         console.log(topic, msg.toString())
         msg = msg.toString()
-        if(topic == 'feet/page'){
+        if(topic == 'JEGELSKERMÆND/page'){
             console.log('nu skal der skiftes side')
             //ER DET ET TAL?
             msg = '#page' + msg
             shiftPage(msg)
         }
         //NU SKAL DER SKE NOGET SPÆNDENDE
-        if(topic == 'feet'){
+        if(topic == 'JEGELSKERMÆND'){
             select('#msg').elt.textContent = 'Besked på topic ' + topic + ' med teksten ' + msg
         }
     })
 
-    client.publish('feet/page', '1')
+    client.publish('JEGELSKERMÆND/page', '5')
 
 }
 
