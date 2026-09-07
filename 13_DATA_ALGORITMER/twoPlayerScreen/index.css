@@ -1,6 +1,7 @@
-body {
+body, * {
     margin: 0;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .page {
@@ -10,7 +11,8 @@ body {
     display: grid;
     position: fixed;
     top: 100vh;
-    padding:10rem;
+    padding:5rem;
+    grid-template-rows: 1fr 2fr 2fr;
 }
 
 .page.show {
@@ -20,8 +22,25 @@ body {
 #players{
     display:grid;
     grid-template-columns: 1fr 1fr;
+    height:30vh;
 }
 
 #playerA img, #playerB img{
-    width:100px;
+    height: 70%;
+}
+
+
+#characters{
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 150px;
+    gap:1rem;
+}
+
+.selected{
+    border: 3px, solid, yellow;
+}
+
+.locked{
+    border: 3px, solid, greenyellow;
 }

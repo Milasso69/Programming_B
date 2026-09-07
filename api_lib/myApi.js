@@ -5,7 +5,7 @@
 //txt : the text the toast will display
 //timeout: how long the toast will show in ms, defaults to 2000
 //type: choose between notify and warning 
-function showToast(toastDiv = "#toast", txt, timeout=2000, type="notify"){
+function showToast(txt, timeout=2000, type="notify"){
     var toast  
     try {
         toast = select('#toast')
@@ -49,4 +49,28 @@ function createMenu(menuDivId){
         a.mousePressed( ()=>{ shiftPage(p.attribute('id'))} )
 
     } )
+}
+
+//Funktion der henter og returnerer JSON fra et API
+async function getJSON( endpoint ){
+    //Vi starter med at kontakte serveren med et request
+    var res 
+    try{
+        res = await fetch( endpoint )
+    }catch(err){
+        console.log(err)
+    }
+    //Hvis response er ok, henter vi json data 
+    var json = await res.json()
+    console.log('Hentede poster fra fetchJSON', json)
+    return json 
+}
+
+
+function createCard(title = "", text = "", image = ""){
+    var card = createDiv().addClass('card')
+    card.child(createImg(image))
+    card.child(createElement('h2', title))
+    card.child(createElement('p', text))
+    return card
 }

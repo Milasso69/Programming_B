@@ -1,4 +1,8 @@
 /* CSS der hører til dit API — fx .show og #toast */
+body, * {
+    margin: 0;
+    box-sizing: border-box;
+}
 
 #toast{
     width:20rem;
@@ -27,4 +31,22 @@
     background-color:lightpink;
 }
 
+.card{
+    height:100%;
+    width:100%;
+}
 
+.card img{
+    width:100%;
+}
+
+.card h2{
+    font-size:1rem;
+    font-weight:bold;
+    margin:0;
+}
+
+.card p{
+    margin:0;
+    font-size:1rem;
+}
